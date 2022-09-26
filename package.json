@@ -4,7 +4,9 @@
   "description": "A simple little skeleton for making a nice wedding website",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "start-dev": "set NODE_ENV=dev && nodemon index.js",
+    "start": "set NODE_ENV=release && node index.js"
   },
   "repository": {
     "type": "git",
@@ -17,11 +19,15 @@
   },
   "homepage": "https://github.com/brendanlensink/wedding-website#readme",
   "dependencies": {
+    "dotenv": "^16.0.2",
     "ejs": "^3.1.8",
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "pg": "^8.8.0"
   },
   "devDependencies": {
     "eslint": "^8.24.0",
-    "eslint-config-airbnb": "^19.0.4"
-  }
+    "eslint-config-airbnb": "^19.0.4",
+    "nodemon": "^2.0.20"
+  },
+  "type": "module"
 }

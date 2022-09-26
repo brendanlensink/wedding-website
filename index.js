@@ -1,4 +1,9 @@
+import * as dotenv from "dotenv";
 import express from "express";
+
+console.log(process.env.NODE_ENV);
+
+dotenv.config({ path: `.env.${process.env.NODE_ENV}` });
 
 const app = express();
 const port = 3000;
