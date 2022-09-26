@@ -1,0 +1,26 @@
+{
+  "name": "wedding-website",
+  "version": "1.0.0",
+  "description": "A simple little skeleton for making a nice wedding website",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brendanlensink/wedding-website.git"
+  },
+  "author": "blensink",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/brendanlensink/wedding-website/issues"
+  },
+  "homepage": "https://github.com/brendanlensink/wedding-website#readme",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.24.0"
+  }
+}
