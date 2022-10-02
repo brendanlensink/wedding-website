@@ -1,0 +1,15 @@
+<div>
+  <div>
+    <% if (message) { %>
+    <h1><%= message%></h1>
+    <% } %>
+
+    <form method="POST" action="/admin/login">
+      <div class="form-group">
+        <label for="password">Password:</label><br />
+        <input type="text" id="password" name="password" /><br />
+      </div>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+</div>

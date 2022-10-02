@@ -1,0 +1,18 @@
+<body onload="onload()">
+  <div>
+    <h2>This page is only visible to logged in users</h2>
+  </div>
+
+  <form>
+    <input type="file" id="fileInput" name="filename" accept=".csv" />
+  </form>
+
+  <% for ( let guest of guests ) { %>
+    <li>
+      <span><%= guest.name %>
+      <span><%= guest.email %>
+    </li>
+  <% } %>
+
+  <script type="text/javascript" src="./js/dashboard.js"></script>
+</body>

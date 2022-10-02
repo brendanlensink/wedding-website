@@ -7,3 +7,7 @@ rules:
     - double
   no-console:
     - off
+  linebreak-style:
+    - off
+  import/extensions:
+    - off
