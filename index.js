@@ -3,6 +3,7 @@ import bodyParser from "body-parser";
 
 import cookieParser from "cookie-parser";
 import adminRouter from "./router/AdminRouter.js";
+import guestRouter from "./router/GuestRouter.js";
 
 const app = express();
 const port = 3000;
@@ -13,10 +14,7 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
-
+app.use("/", guestRouter);
 app.use("/admin", adminRouter);
 
 app.listen(port, () => {

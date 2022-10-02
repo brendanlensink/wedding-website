@@ -13,8 +13,32 @@ export default class DBService {
       password: process.env.DB_PASSWORD,
     };
 
-    console.log(connection);
-
     this.pool = new pg.Pool(connection);
+  }
+
+  async getAllUsers() {
+    const response = await this.pool.query("SELECT * FROM guest");
+    return response.rows;
+  }
+
+  async getUserBy(email) {
+    const response = await this.pool.query(
+      "SELECT * FROM guest WHERE email = $1",
+      [email]
+    );
+    return response.rows[0];
+  }
+
+  addUser(row) {
+    this.pool.query(
+      "INSERT INTO guest (name, invites, email) VALUES ($1, $2, $3) ON CONFLICT DO NOTHING",
+      [row[0], row[1], row[2]],
+      (error, _) => {
+        if (error) {
+          console.log(error);
+        }
+        console.log("added");
+      }
+    );
   }
 }

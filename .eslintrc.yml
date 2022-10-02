@@ -11,3 +11,5 @@ rules:
     - off
   import/extensions:
     - off
+  comma-dangle:
+    - off

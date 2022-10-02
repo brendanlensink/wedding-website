@@ -1,0 +1,15 @@
+<div>
+  <div>
+    <% if (message) { %>
+    <h1><%= message%></h1>
+    <% } %>
+
+    <form method="POST" action="/guest/login">
+      <div class="form-group">
+        <label for="email">Email:</label><br />
+        <input type="text" id="email" name="email" /><br />
+      </div>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+</div>
