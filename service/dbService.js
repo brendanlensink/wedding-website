@@ -29,16 +29,18 @@ export default class DBService {
     return response.rows[0];
   }
 
-  addUser(row) {
-    this.pool.query(
+  async updateUser(user) {
+    const { rsvp, song, email } = user;
+    await this.pool.query(
+      "UPDATE guest SET rsvp = $1, song = $2, updated = $3 WHERE email = $4",
+      [Number(rsvp), song, new Date(), email]
+    );
+  }
+
+  async addUser(row) {
+    await this.pool.query(
       "INSERT INTO guest (name, invites, email) VALUES ($1, $2, $3) ON CONFLICT DO NOTHING",
-      [row[0], row[1], row[2]],
-      (error, _) => {
-        if (error) {
-          console.log(error);
-        }
-        console.log("added");
-      }
+      [row[0], row[1], row[2]]
     );
   }
 }

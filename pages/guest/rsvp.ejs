@@ -1,0 +1,38 @@
+<%- include('../templates/header'); %> <%- include('../templates/nav'); %>
+<img src onerror="onLoad(<%= JSON.stringify(user) %>)" />
+<div>
+  <form method="POST" action="/guest/rsvp">
+    <div class="form-group">
+      <div id="rsvp-attending-container" class="">
+        <label for="attending">Attending: <%= user.invites %></label><br />
+        <input
+          type="text"
+          id="rsvp-attending-attending"
+          name="attending"
+        /><br />
+      </div>
+
+      <input
+        type="checkbox"
+        id="rsvp-decline-checkbox"
+        name="decline"
+        value="decline"
+      />
+      <label for="decline">Unfortunately, we will not be able to attend</label
+      ><br />
+
+      <div id="rsvp-song-container" class="">
+        <label for="song">Song suggestion</label><br />
+        <input type="text" id="rsvp-attending-song-field" name="song" /><br />
+      </div>
+    </div>
+
+    <button type="submit" id="rsvp-attending-submit" value="confirm">
+      RSVP
+    </button>
+    <span id="rsvp-submit-error"></span>
+  </form>
+</div>
+
+<script type="text/javascript" src="./js/rsvp.js"></script>
+<%- include('../templates/footer'); %>

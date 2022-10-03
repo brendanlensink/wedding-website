@@ -15,7 +15,7 @@ async function renderAdmin(res) {
   });
 }
 
-adminRouter.get("/", (req, res) => {
+adminRouter.get("/", async (req, res) => {
   const authToken = req.cookies.AuthToken;
   const storedToken = authManager.authToken;
 
