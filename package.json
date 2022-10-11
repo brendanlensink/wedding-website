@@ -1,0 +1,19 @@
+{
+  "name": "wedding-website",
+  "version": "1.0.0",
+  "description": "An open source framework for putting together a wedding website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brendanlensink/wedding-website.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brendanlensink/wedding-website/issues"
+  },
+  "homepage": "https://github.com/brendanlensink/wedding-website#readme"
+}
