@@ -9,7 +9,6 @@ import guestRouter from "./router/GuestRouter.js";
 dotenv.config();
 
 const app = express();
-const port = 3000;
 
 app.use(cookieParser());
 app.set("view engine", "ejs");
@@ -26,6 +25,6 @@ if (process.env.SAVE_THE_DATE_ACTIVE === "true") {
   app.use("/admin", adminRouter);
 }
 
-app.listen(port, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log(`Example app listening on port ${port}!`);
 });
