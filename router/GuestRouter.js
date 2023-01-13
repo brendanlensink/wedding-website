@@ -1,5 +1,5 @@
 import express from "express";
-import DBService from "../service/DBService.js";
+import DBService from "../service/dbService.js";
 import AuthManager from "../manager/AuthManager.js";
 
 const authManager = new AuthManager();

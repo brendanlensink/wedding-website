@@ -1,7 +1,7 @@
 import express from "express";
 import * as csv from "fast-csv";
 import AdminManager from "../manager/AuthManager.js";
-import DBService from "../service/DBService.js";
+import DBService from "../service/dbService.js";
 
 const adminRouter = express.Router();
 const authManager = new AdminManager();
