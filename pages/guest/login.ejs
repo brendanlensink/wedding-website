@@ -1,11 +1,9 @@
 <%- include('../templates/header', {page: "login"}); %>
 
-<div class="container login-background">
-  <div class="login-container">
-    <% if (message) { %>
-    <h1 class="login-error"><%= message%></h1>
-    <% } %>
+<body>
+  <div class="background"></div>
 
+  <div class="container login-container">
     <span class="login-header">Welcome</span>
 
     <span class="login-subheader"
@@ -15,6 +13,10 @@
 
     <form method="POST" action="/guest/login">
       <div class="form-group">
+        <% if (message) { %>
+        <h1 class="login-error"><%= message%></h1>
+        <% } %>
+
         <input
           type="text"
           id="email"
@@ -26,6 +28,6 @@
       </div>
     </form>
   </div>
-</div>
+</body>
 
 <%- include('../templates/footer'); %>
