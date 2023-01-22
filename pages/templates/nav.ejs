@@ -1,8 +1,7 @@
 <div class="nav navbar-expand-lg navbar-light bg-light">
-  <a class="nav-link active" href="#home">Home</a>
-  <a class="nav-link" href="#rsvp">RSVP</a>
-  <a class="nav-link" href="#venue">The Venue</a>
-  <a class="nav-link" href="#day-of">Day Of</a>
-  <a class="nav-link" href="#registry">Registry</a>
-  <a class="nav-link" href="#faq">FAQ</a>
+  <a class="nav-link <% if (page === "home") { %>active<% } %>" href="./">Home</a>
+  <a class="nav-link <% if (page === "rsvp") { %>active<% } %>" href="./rsvp">RSVP</a>
+  <a class="nav-link <% if (page === "venue") { %>active<% } %>" href="./venue">The Venue</a>
+  <a class="nav-link <% if (page === "day-of") { %>active<% } %>" href="./day-of">Day Of</a>
+  <a class="nav-link <% if (page === "questions") { %>active<% } %>" href="./questions">Questions</a>
 </div>

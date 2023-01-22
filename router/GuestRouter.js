@@ -71,10 +71,21 @@ guestRouter.get("/venue", (req, res) => {
   });
 });
 
+guestRouter.get("/questions", (req, res) => {
+  res.render("../pages/guest/questions", {
+    user: authManager.user,
+  });
+});
+
+guestRouter.get("/day-of", (req, res) => {
+  res.render("../pages/guest/day-of", {
+    user: authManager.user,
+  });
+});
+
 guestRouter.get("/photos", (req, res) => {
   res.render("../pages/guest/photos", {
     user: authManager.user,
   });
 });
-
 export default guestRouter;

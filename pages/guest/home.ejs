@@ -1,112 +1,19 @@
-<%- include('../templates/header', {page: "home"}); %> <%-
+<%- include('../templates/header', {page: "home"}); %>
 
 <body>
-  <div class="background"></div>
+  <%- include('../templates/nav', {page: "home"}); %>
 
-  include('../templates/nav'); %>
-  <div id="home">
-    <div class="dash-container">
-      <div class="dash-invitation">
-        <img
-          src="./rsvp-saver.png"
-          alt="This is a placeholder"
-          class="invitation"
-        />
-      </div>
-    </div>
-  </div>
-
-  <div id="rsvp">
-    <div class="rsvp-spacer"></div>
-    Please respond by March 23, 2023
-    <form class="rsvp-form">
-      <input type="text" id="rsvp-attending-input" name="attending" /><br />
-      <label id="rsvp-attending-input-label" for="attending"
-        >of 4 happily accept. Children are welcome at the ceremony, reception is
-        adults only.</label
-      ><br />
-      <br />
-      <input
-        type="checkbox"
-        id="rsvp-decline-checkbox"
-        name="decline"
-        value="decline"
+  <div class="container">
+    <div class="invite-container">
+      <img
+        src="./img/invitation.png"
+        alt="FILL IN INVITATION INFO HERE"
+        class="invitation"
       />
-      <label for="rsvp-decline-label"
-        >Regretfully, we will be unable to attend.</label
-      >
-      <br />
-      <br />
-      <label for="song" id="rsvp-song-label"
-        >A song I'd like to hear on the dance floor:</label
-      ><br />
-      <input type="text" id="rsvp-song-input" name="song" />
-      <br />
-      <br />
-      <label for="song" id="rsvp-dietary-label"
-        >Any dietary restrictions we should know about it</label
-      ><br />
-      <input type="text" id="rsvp-dietary-input" name="song" />
-    </form>
-  </div>
-
-  <div id="venue">
-    <img
-      src="./rsvp-saver.png"
-      alt="This is a placeholder"
-      class="invitation"
-    />
-  </div>
-
-  <div id="day-of">
-    <img
-      src="./rsvp-saver.png"
-      alt="This is a placeholder"
-      class="invitation"
-    />
-  </div>
-
-  <div id="registry">
-    <img
-      src="./rsvp-saver.png"
-      alt="This is a placeholder"
-      class="invitation"
-    />
-  </div>
-
-  <div id="faq">
-    <div class="faq-container">
-      <div class="faq-left-container">
-        <div class="faq-header">FAQ</div>
-      </div>
-
-      <div class="faq-right-container">
-        <div class="faq-question">Accomodations?</div>
-        <div class="faq-answer">
-          Accomodations can be booked through this website here. Spots are
-          reserved until 6 weeks before the date.
-        </div>
-
-        <div class="faq-question">What should we wear?</div>
-        <div class="faq-answer">
-          We'd appreciate it if you dressed nicely, but want everyone to be
-          comfortable. Don't wear sweatpants.
-        </div>
-
-        <div class="faq-question">Are kids welcome?</div>
-        <div class="faq-answer">
-          Children are welcome at the ceremony, but not at the reception. We
-          have organized childcare through ASDFGH. Please contact the bride or
-          groom for more details. We'd love to party with you, give you a night
-          off from the kids
-        </div>
-
-        <div class="faq-question">Did we miss something?</div>
-        <div class="faq-answer">
-          Contact us at questions@bteamforever.com and we'll get it sorted out.
-        </div>
-      </div>
     </div>
+
+    <a href="./rsvp">Please <em id="invite-rsvp">RSVP</em> by March 12, 2002</a>
   </div>
 </body>
+
 <%- include('../templates/footer'); %>

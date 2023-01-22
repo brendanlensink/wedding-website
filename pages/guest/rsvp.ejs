@@ -1,38 +1,61 @@
-<%- include('../templates/header'); %> <%- include('../templates/nav'); %>
+<%- include('../templates/header', {page: "rsvp"}); %> <%-
+include('../templates/nav', {page: "rsvp"}); %>
+
 <img src onerror="onLoad(<%= JSON.stringify(user) %>)" />
-<div>
-  <form method="POST" action="/guest/rsvp">
-    <div class="form-group">
-      <div id="rsvp-attending-container" class="">
-        <label for="attending">Attending: <%= user.invites %></label><br />
+
+<body>
+  <div class="rsvp-container">
+    <form method="POST" action="/guest/rsvp">
+      We invite you to be with us as we celebrate the beginning of our new life
+      together
+      <div class="form-group">
+        <div id="rsvp-attending-container" class="">
+          <label for="attending"
+            >We have reserved <%= user.invites %> seats at the reception for
+            you</label
+          ><br />
+
+          <select name="rsvps" id="rsvps">
+            <% for (let i = user.invites; i >= 1; i--) { %>
+            <option value="<%= i %>}"><%= i %></option>
+            <% } %>
+          </select>
+
+          happily accept.
+        </div>
+
+        <div id="rsvp-dietary-container" class="">
+          <label for="dietary">Any Dietary Restrictions?</label><br />
+          <input
+            type="text"
+            id="rsvp-attending-dietary-field"
+            name="song"
+          /><br />
+        </div>
+
+        <div id="rsvp-song-container" class="">
+          <label for="song">A song that would get you on the dance floor</label
+          ><br />
+          <input type="text" id="rsvp-attending-song-field" name="song" /><br />
+        </div>
+
         <input
-          type="text"
-          id="rsvp-attending-attending"
-          name="attending"
-        /><br />
+          type="checkbox"
+          id="rsvp-decline-checkbox"
+          name="decline"
+          value="decline"
+        />
+        <label for="decline">Regretfully, we will not be able to attend</label
+        ><br />
       </div>
-
-      <input
-        type="checkbox"
-        id="rsvp-decline-checkbox"
-        name="decline"
-        value="decline"
-      />
-      <label for="decline">Unfortunately, we will not be able to attend</label
-      ><br />
-
-      <div id="rsvp-song-container" class="">
-        <label for="song">Song suggestion</label><br />
-        <input type="text" id="rsvp-attending-song-field" name="song" /><br />
-      </div>
-    </div>
-
-    <button type="submit" id="rsvp-attending-submit" value="confirm">
-      RSVP
-    </button>
-    <span id="rsvp-submit-error"></span>
-  </form>
-</div>
+      Please respond by March 23, 2023
+      <button type="submit" id="rsvp-attending-submit" value="confirm">
+        RSVP
+      </button>
+      <span id="rsvp-submit-error"></span>
+    </form>
+  </div>
+</body>
 
 <script type="text/javascript" src="./js/rsvp.js"></script>
 <%- include('../templates/footer'); %>
