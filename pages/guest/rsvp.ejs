@@ -6,27 +6,45 @@ include('../templates/nav', {page: "rsvp"}); %>
 <body>
   <div class="rsvp-container">
     <form method="POST" action="/guest/rsvp">
-      We invite you to be with us as we celebrate the beginning of our new life
-      together
+      <p class="rsvp-text rsvp-header">
+        We invite you to celebrate<br />the beginning of our new life together
+      </p>
+
+      <div class="rsvp-text rsvp-invite-count">
+        <label for="attending"
+          >We have reserved <%= user.invites %> seats at the reception for
+          you</label
+        >
+      </div>
+
       <div class="form-group">
         <div id="rsvp-attending-container" class="">
-          <label for="attending"
-            >We have reserved <%= user.invites %> seats at the reception for
-            you</label
-          ><br />
-
-          <select name="rsvps" id="rsvps">
-            <% for (let i = user.invites; i >= 1; i--) { %>
-            <option value="<%= i %>}"><%= i %></option>
-            <% } %>
-          </select>
+          <span class="custom-dropdown">
+            <select name="rsvps" class="rsvp-select select-box">
+              <% for (let i = user.invites; i >= 1; i--) { %>
+              <option value="<%= i %>"><%= i %></option>
+              <% } %>
+            </select>
+          </span>
 
           happily accept.
         </div>
 
-        <div id="rsvp-dietary-container" class="">
-          <label for="dietary">Any Dietary Restrictions?</label><br />
+        <label class="rsvp-decline-container"
+          >Regretfully, we will be unable to attend
           <input
+            type="checkbox"
+            id="rsvp-decline-checkbox"
+            name="decline"
+            value="decline"
+          />
+          <span class="checkmark"></span>
+        </label>
+
+        <div id="rsvp-dietary-container" class="">
+          <label for="dietary">Any dietary restrictions?</label><br />
+          <input
+            class="rsvp-input"
             type="text"
             id="rsvp-attending-dietary-field"
             name="song"
@@ -34,24 +52,24 @@ include('../templates/nav', {page: "rsvp"}); %>
         </div>
 
         <div id="rsvp-song-container" class="">
-          <label for="song">A song that would get you on the dance floor</label
+          <label for="song">What song would get you on the dance floor?</label
           ><br />
-          <input type="text" id="rsvp-attending-song-field" name="song" /><br />
+          <input
+            type="text"
+            class="rsvp-input"
+            id="rsvp-attending-song-field"
+            name="song"
+          /><br />
         </div>
-
-        <input
-          type="checkbox"
-          id="rsvp-decline-checkbox"
-          name="decline"
-          value="decline"
-        />
-        <label for="decline">Regretfully, we will not be able to attend</label
-        ><br />
       </div>
-      Please respond by March 23, 2023
-      <button type="submit" id="rsvp-attending-submit" value="confirm">
-        RSVP
-      </button>
+
+      <div class="rsvp-submit-group">
+        <button type="submit" id="rsvp-attending-submit" value="confirm">
+          RSVP
+        </button>
+        <p id="rsvp-date">Please RSVP by March 23, 2023</p>
+      </div>
+
       <span id="rsvp-submit-error"></span>
     </form>
   </div>
