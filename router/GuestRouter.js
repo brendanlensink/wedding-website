@@ -49,17 +49,17 @@ guestRouter.get("/rsvp", (req, res) => {
 });
 
 guestRouter.post("/guest/rsvp", async (req, res) => {
-  const { attending, song, decline } = req.body;
+  const { rsvp, song, dietary } = req.body;
 
-  if (decline) {
+  if (rsvp === -1) {
     authManager.user.rsvp = -1;
     authManager.user.song = "";
+    authManager.user.dietary = "";
   } else {
-    authManager.user.rsvp = attending;
+    authManager.user.rsvp = rsvp;
     authManager.user.song = song;
+    authManager.user.dietary = dietary;
   }
-
-  console.log(authManager.user);
 
   await dbService.updateUser(authManager.user);
   res.render("../pages/guest/rsvp-complete");

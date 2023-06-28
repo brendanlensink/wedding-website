@@ -7,5 +7,6 @@ CREATE TABLE IF NOT EXISTS guest (
 	invites INT NOT NULL,
 	rsvp INT,
 	song VARCHAR (255),
+	dietary VARCHAR (255),
     updated TIMESTAMP 
 );
