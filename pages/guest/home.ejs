@@ -1,8 +1,9 @@
-<%- include('../templates/header', {page: "home"}); %>
+<%- include('../templates/header', {page: "home"}); %> <%-
+include('../templates/nav', {page: "home"}); %>
+
+<img src onerror="onLoad(<%= JSON.stringify(user) %>)" />
 
 <body>
-  <%- include('../templates/nav', {page: "home"}); %>
-
   <div class="container">
     <div id="invite-container">
       <img
@@ -12,10 +13,95 @@
       />
     </div>
 
-    <a id="invite-link" href="./rsvp">
-      Please <em id="invite-rsvp">RSVP</em> by TODO
-    </a>
+    <form method="POST" action="/guest/rsvp">
+      <div class="form-group">
+        <div class="rsvp-attend-container">
+          <label for="attending"
+            >We have reserved <%= user.invites %> seats at the reception for
+            you</label
+          >
+
+          <div id="rsvp-attending-container">
+            <select name="rsvps" class="custom-select" id="rsvp-attending">
+              <option disabled selected value>-</option>
+              <% for (let i = user.invites; i >= 1; i--) { %>
+              <option value="<%= i %>"><%= i %></option>
+              <% } %>
+            </select>
+
+            <span id="rsvp-attending-text">happily accept.</span>
+          </div>
+
+          <label class="rsvp-decline-container"
+            >Regretfully, we will be unable to attend
+            <input
+              type="checkbox"
+              id="rsvp-decline-checkbox"
+              name="decline"
+              value="decline"
+            />
+            <span class="checkmark"></span>
+          </label>
+        </div>
+
+        <div>
+          <div id="rsvp-dietary-container" class="">
+            <label for="dietary">Any dietary restrictions?</label><br />
+            <input
+              class="rsvp-input"
+              type="text"
+              id="rsvp-attending-dietary-field"
+              oninput="updateSubmitState()"
+              name="song"
+            /><br />
+          </div>
+
+          <div id="rsvp-song-container" class="">
+            <label for="song">What song would get you on the dance floor?</label
+            ><br />
+            <input
+              type="text"
+              class="rsvp-input"
+              id="rsvp-attending-song-field"
+              oninput="updateSubmitState()"
+              name="song"
+            /><br />
+          </div>
+        </div>
+
+        <div>
+          <div
+            id="rsvp-attending-submit"
+            class="rsvp-attending-submit-disabled"
+            onclick="submit()"
+          >
+            <span class="unselectable">RSVP</span>
+          </div>
+          <p id="rsvp-date">Please RSVP by March 23, 2023</p>
+          <p id="rsvp-edit-reminder">
+            Don't worry - you can come back and edit this page any time.
+          </p>
+
+          <span id="rsvp-submit-error"></span>
+        </div>
+      </div>
+    </form>
   </div>
 </body>
-
+<script type="text/javascript" src="./js/rsvp.js"></script>
+<script
+  src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+  crossorigin="anonymous"
+></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+  integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+  crossorigin="anonymous"
+></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+  crossorigin="anonymous"
+></script>
 <%- include('../templates/footer'); %>
