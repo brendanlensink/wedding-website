@@ -14,11 +14,18 @@ const dietaryInput = document.getElementById("rsvp-attending-dietary-field");
 const songInput = document.getElementById("rsvp-attending-song-field");
 
 function onLoad(newUser) {
-  user = newUser;
-  const isAttending = user.rsvp !== -1;
+  this.user = newUser;
+  const isAttending = this.user.rsvp !== -1;
   declineCheckbox.checked = !isAttending;
-  songInput.value = user.song;
-  dietaryInput.value = user.dietary;
+
+  if (this.user.rsvp >= 1) {
+    attendingInput.value = this.user.rsvp;
+  } else {
+    attendingInput.value = ""
+  }
+
+  songInput.value = this.user.song;
+  dietaryInput.value = this.user.dietary;
 
   setAttendingFieldsHidden(!isAttending);
 
@@ -32,6 +39,8 @@ const setAttendingFieldsHidden = (hidden) => {
     attendingContainer.classList.add("hidden");
     dietaryContainer.classList.add("hidden");
     songContainer.classList.add("hidden");
+
+    attendingInput.value = ""
   } else {
     attendingContainer.classList.remove("hidden");
     songContainer.classList.remove("hidden");
@@ -41,11 +50,20 @@ const setAttendingFieldsHidden = (hidden) => {
   updateSubmitState();
 };
 
+const updateSubmitAttendingState = () => {
+  if (declineCheckbox.checked) {
+    declineCheckbox.checked = false;
+    setAttendingFieldsHidden(false);
+ 
+  }
+  updateSubmitState();
+}
+
 const updateSubmitState = () => {
   if (declineCheckbox.checked) {
     submitEnabled = true;
   } else {
-    submitEnabled = dietaryInput.value && songInput.value;
+    submitEnabled = attendingInput.value;
   }
 
   // TODO: check attending number filled
@@ -65,19 +83,20 @@ const submit = () => {
     };
   } else {
     body = {
-      rsvp: attendingInput.selectedIndex,
+      rsvp: Number(attendingInput.value),
       song: songInput.value,
       dietary: dietaryInput.value,
     };
   }
 
+  console.log(body)
+
   fetch("/guest/rsvp", {
     method: "POST",
-    body,
+    body: JSON.stringify(body),
     headers: {
       "Content-type": "application/json; charset=UTF-8",
     },
   })
-    .then((response) => response.json())
-    .then((json) => console.log(json));
+    .then((response) => window.location = response.url);
 };

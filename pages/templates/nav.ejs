@@ -1,14 +1,24 @@
-<div class="nav navbar-expand-lg navbar-light bg-light">
+<div class="nav nav-mobile navbar-expand-lg navbar-light bg-light">
   <div class="hamburger-menu">
     <input id="menu__toggle" type="checkbox" />
-    <label class="menu__btn visible-mobile" for="menu__toggle">
+    <label class="menu__btn" for="menu__toggle">
       <span></span>
     </label>
 
     <ul class="menu__box">
-      <li class="nav-li"><a class="nav-link <% if (page === "home") { %>active<% } %>" href="./">RSVP</a></li>
-      <li class="nav-li"><a class="nav-link <% if (page === "venue") { %>active<% } %>" href="./venue">Venue</a></li>
-      <li class="nav-li"><a class="nav-link <% if (page === "questions") { %>active<% } %>" href="./questions">Questions</a></li>
+      <li class="nav-li"><a class="nav-link <% if (page === "rsvp") { %>nav-link-active<% } %>" href="./rsvp">RSVP</a></li>
+      <li class="nav-li"><a class="nav-link <% if (page === "details") { %>nav-link-active<% } %>" href="./details">The Details</a></li>
+      <li class="nav-li"><a class="nav-link <% if (page === "accomodations") { %>nav-link-active<% } %>" href="./accomodations">Accomodations</a></li>
+      <li class="nav-li"><a class="nav-link <% if (page === "questions") { %>nav-link-active<% } %>" href="./questions">Questions</a></li>
+      <li class="nav-li"><a class="nav-link <% if (page === "wedding-party") { %>nav-link-active<% } %>" href="./wedding-party">Wedding Party</a></li>
     </ul>
   </div>
+</div>
+
+<div class="nav nav-desktop">
+  <a class="nav-link <% if (page === "rsvp") { %>nav-link-active<% } %>" href="./rsvp">RSVP</a>
+  <a class="nav-link <% if (page === "details") { %>nav-link-active<% } %>" href="./details">The Details</a>
+  <a class="nav-link <% if (page === "accomodations") { %>nav-link-active<% } %>" href="./accomodations">Accomodations</a>
+  <a class="nav-link <% if (page === "questions") { %>nav-link-active<% } %>" href="./questions">Questions</a>
+  <a class="nav-link <% if (page === "wedding-party") { %>nav-link-active<% } %>" href="./wedding-party">Wedding Party</a>
 </div>

@@ -48,6 +48,12 @@ guestRouter.get("/rsvp", (req, res) => {
   });
 });
 
+guestRouter.get("/rsvp-complete", (req, res) => {
+  res.render("../pages/guest/rsvp-complete", {
+    user: authManager.user,
+  });
+});
+
 guestRouter.post("/guest/rsvp", async (req, res) => {
   const { rsvp, song, dietary } = req.body;
 
@@ -62,11 +68,19 @@ guestRouter.post("/guest/rsvp", async (req, res) => {
   }
 
   await dbService.updateUser(authManager.user);
-  res.render("../pages/guest/rsvp-complete");
+
+  console.log("rediect")
+  res.redirect("/rsvp-complete");
 });
 
-guestRouter.get("/venue", (req, res) => {
-  res.render("../pages/guest/venue", {
+guestRouter.get("/details", (req, res) => {
+  res.render("../pages/guest/details", {
+    user: authManager.user,
+  });
+});
+
+guestRouter.get("/accomodations", (req, res) => {
+  res.render("../pages/guest/accomodations", {
     user: authManager.user,
   });
 });
@@ -77,14 +91,8 @@ guestRouter.get("/questions", (req, res) => {
   });
 });
 
-guestRouter.get("/day-of", (req, res) => {
-  res.render("../pages/guest/day-of", {
-    user: authManager.user,
-  });
-});
-
-guestRouter.get("/photos", (req, res) => {
-  res.render("../pages/guest/photos", {
+guestRouter.get("/wedding-party", (req, res) => {
+  res.render("../pages/guest/wedding-party", {
     user: authManager.user,
   });
 });

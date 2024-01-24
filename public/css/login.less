@@ -1,9 +1,21 @@
-.login-container {
-  width: 100%;
+.login-background {
+  background-image: url("/img/std_background_2.jpg");
+
+  /* Full height */
   height: 100%;
-  z-index: 100;
+  width: 100%;
+
+  /* Center and scale the image nicely */
   position: absolute;
-  top: 40%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 0;
+}
+
+.login-container {
+  position: relative;
+  top: 30%;
   left: 0;
 
   height: 200px;
@@ -14,14 +26,18 @@
 
 .login-header {
   font-size: 6em;
-  font-family: "Great Vibes", serif;
+  // font-family: "Playfair Display", serif;
+  font-family: "Pinyon Script", serif;
+  margin-bottom: -32px;
+  color: #fff; 
 }
 
 .login-subheader {
-  font-size: 1.5em;
-  max-width: 60%;
+  font-size: 1.3em;
+  max-width: 50%;
 
   text-align: center;
+  color: #fff;
 }
 
 .login-form {
@@ -32,18 +48,11 @@
 }
 
 .login-error {
-  margin: 0;
+  margin-top: 32px;
   text-align: center;
+  font-size: 32px;
 
   color: #fca5a5;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  margin-top: 32px;
 }
 
 .login-field {
@@ -57,12 +66,12 @@
   color: rgba(0, 0, 0, 0.85);
   cursor: pointer;
   display: inline-flex;
-  font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica,
+  font-family: "Playfair Display", "Helvetica Neue", Helvetica,
     Arial, sans-serif;
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 20px;
+  font-weight: 400;
   justify-content: center;
-  line-height: 1.25;
+  line-height: 1;
   min-height: 3rem;
   padding: calc(0.875rem - 1px) calc(1.5rem - 1px);
   position: relative;
@@ -75,6 +84,7 @@
   width: 400px;
 
   padding: 8px 16px;
+  margin-top:16px;
 }
 
 .button {
@@ -88,9 +98,9 @@
   color: rgba(0, 0, 0, 0.85);
   cursor: pointer;
   display: inline-flex;
-  font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica,
+  font-family: "Playfair Display", "Helvetica Neue", Helvetica,
     Arial, sans-serif;
-  font-size: 16px;
+  font-size: 24px;
   font-weight: 600;
   justify-content: center;
   line-height: 1.25;

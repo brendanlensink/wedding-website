@@ -1,0 +1,269 @@
+@import "colors";
+
+.invitation {
+  object-fit: contain;
+
+  max-width: 800px;
+  max-height: 800px;
+  max-width: 80%;
+  box-shadow: 5px 10px 8px #0000004b;
+}
+
+.rsvp-body {
+  align-items: center;
+  text-align: center;
+}
+
+.rsvp-top-container {
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 64px;
+  padding-left: 100px;
+}
+
+.rsvp-attending {
+  font-size: 40px;
+}
+
+.rsvp-attending-sub {
+  font-size: 20px;
+  padding: 8px 0;
+  margin: 0;
+}
+
+.rsvp-attending-container {
+  justify-content: start;
+  align-items: center;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.rsvp-attending-container-decline {
+  margin-left: 32px;
+}
+
+.decline-text {
+  margin-left: 16px;
+}
+
+.rsvp-extra-container {
+  margin-top: 32px;
+
+  text-align: center;
+}
+
+.rsvp-extra-inner {
+  margin-top: 16px;
+}
+
+select {
+  /* Reset Select */
+  appearance: none;
+  outline: 10px red;
+  border: 0;
+  box-shadow: none;
+  /* Personalize */
+  flex: 1;
+  padding: 0 0 9px 16px;
+  color: black;
+  background-color: @surface;
+  background-image: none;
+  cursor: pointer;
+  font-size: 32px;
+  font-family: 'Playfair Display', serif;
+}
+
+/* Remove IE arrow */
+select::-ms-expand {
+  display: none;
+}
+/* Custom Select wrapper */
+.select {
+  position: relative;
+  display: flex;
+  width: 70px;
+  height: 50px;
+  border-radius: 16px;;
+  overflow: hidden;
+}
+/* Arrow */
+.select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 2em 1em 2em 2em;
+  background-color: @surface;
+  transition: .25s all ease;
+  pointer-events: none;
+  font-size: 10px;
+}
+/* Transition */
+.select:hover::after {
+  color: @accent;
+}
+
+.down_note {
+    display: flex;
+    justify-content: center;
+}
+
+/* The container */
+.checkbox-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 35px;
+  width: 35px;
+  border-radius: 8px;
+  background-color: @surface;
+}
+
+/* On mouse-over, add a grey background color */
+.checkbox-container:hover input ~ .checkmark {
+  background-color: @accent;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox-container input:checked ~ .checkmark {
+  background-color: @accent;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox-container .checkmark:after {
+  left: 14px;
+  top: 9px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+
+.rsvp-field {
+  align-self: center;
+  align-items: center;
+  background-color: @surface;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 0.85);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "Playfair Display", "Helvetica Neue", Helvetica,
+    Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  justify-content: center;
+  line-height: 1;
+  min-height: 2rem;
+  padding: calc(0.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: 400px;
+
+  padding: 8px 16px;
+  margin-top: 8px;
+}
+
+#rsvp-attending-submit {
+  align-self: center;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 0.85);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "Playfair Display", "Helvetica Neue", Helvetica,
+    Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  min-height: 3rem;
+  padding: calc(0.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: 200px;
+
+  margin-top: 16px;
+}
+
+.rsvp-attending-submit-disabled {
+background-color: @surface;
+}
+
+.rsvp-attending-submit-enabled {
+  background-color: #ffffff;
+}
+
+.button:hover,
+.button:focus {
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.button:hover {
+  transform: translateY(-1px);
+}
+
+.button:active {
+  background-color: #f0f0f1;
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  color: rgba(0, 0, 0, 0.65);
+  transform: translateY(0);
+}

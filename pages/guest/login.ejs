@@ -1,33 +1,39 @@
 <%- include('../templates/header', {page: "login"}); %>
 
-<body>
-  <div class="background"></div>
+<div class="login-background"></div>
 
-  <div class="container login-container">
+<div class="container login-container">
+  <div class="row">
     <span class="login-header">Welcome</span>
-
-    <span class="login-subheader"
-      >To continue, please enter the email address your invitation was sent
-      to.</span
-    >
-
-    <form method="POST" action="/guest/login">
-      <div class="form-group">
-        <% if (message) { %>
-        <h1 class="login-error"><%= message%></h1>
-        <% } %>
-
-        <input
-          type="text"
-          id="email"
-          name="email"
-          class="login-field"
-          placeholder="bteam@bteamforever.com"
-        /><br />
-        <input type="submit" value="Enter" class="button" />
-      </div>
-    </form>
   </div>
-</body>
+
+  <div class="row">
+    <span class="login-subheader">
+      To continue,<br>please enter the email address your invitation was sent to.
+    </span>
+  </div>
+
+  <form method="POST" action="/guest/login">
+    <!-- <% if (message) { %> -->
+      <div class="row">
+        <h1 class="login-error"><%= message%></h1>
+      </div>
+    <!-- <% } %> -->
+
+    <div class="row">
+      <input
+        type="text"
+        id="email"
+        name="email"
+        class="login-field"
+        placeholder="bteam@bteamforever.com"
+      />
+    </div>
+    
+    <div class="row">
+      <input type="submit" value="Enter" class="button" />
+    </div>
+  </form>
+</div>
 
 <%- include('../templates/footer'); %>
