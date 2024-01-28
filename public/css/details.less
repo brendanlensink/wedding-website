@@ -1,14 +1,14 @@
 @import "colors";
 
+.container {
+    padding: 100px 0 100px 0;
+}
+
 .details-row {
     align-items: center;
 
-    padding: 16px 0 16px 64px;
+    padding: 64px 0 64px 64px;
     gap: 64px;
-}
-
-.details-top-row {
-    padding-top: 128px;
 }
 
 .details-ceremony-accent {
@@ -19,4 +19,23 @@
     text-align: right;
 
     padding: 64px 64px 64px 0;
+}
+
+@media screen and (max-width: 800px) {
+    .container {
+        padding: 32px;
+    }
+
+    .details-row {
+        align-items: center;
+    
+        padding: 0;
+        gap: 64px;
+    }
+
+    .align-right {
+        text-align: right;
+    
+        padding: 0;
+    }
 }

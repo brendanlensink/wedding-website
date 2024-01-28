@@ -1,14 +1,5 @@
 @import "colors";
 
-.invitation {
-  object-fit: contain;
-
-  max-width: 800px;
-  max-height: 800px;
-  max-width: 80%;
-  box-shadow: 5px 10px 8px #0000004b;
-}
-
 .rsvp-body {
   align-items: center;
   text-align: center;
@@ -56,7 +47,7 @@
 .rsvp-extra-inner {
   margin-top: 16px;
 }
-
+ 
 select {
   /* Reset Select */
   appearance: none;
@@ -266,4 +257,41 @@ background-color: @surface;
   box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
   color: rgba(0, 0, 0, 0.65);
   transform: translateY(0);
+}
+
+@media screen and (max-width: 800px) {
+  .rsvp-body {
+   width: 100%;
+  }
+
+  .rsvp-attending {
+    display: inline-block;
+    width: 100%;
+    font-size: 24px;
+  }
+
+  .rsvp-attending-sub {
+    display: inline-block;
+    width: 100%;
+    font-size: 16px;
+  }
+
+  .rsvp-top-container {
+    width: 100%;
+    margin-top: 32px;
+    padding-left: 0;
+  }
+
+  .decline-text {
+    font-size: 16px;
+    width: 60%;
+  }
+
+  .rsvp-attending-container-decline {
+    margin-left: 0;
+  }
+
+  .rsvp-field {
+    width: 90%;
+  }
 }

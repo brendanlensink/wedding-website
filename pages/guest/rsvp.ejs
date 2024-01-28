@@ -1,29 +1,18 @@
 <%- include('../templates/header', {page: "rsvp"}); %> 
 <%- include('../templates/nav', {page: "rsvp"}); %>
 
-<img src onerror="onLoad(<%= JSON.stringify(user) %>)" />
-
-
 <div class="row header-container">
   <img src="/img/rsvp.jpg" class="header-img">
 </div>
 
 <div class="container">
-  <!-- <div class="row">
-    <img
-      src="./img/invitation.png"
-      alt="FILL IN INVITATION INFO HERE"
-      class="invitation"
-    />
-  </div> -->
-
   <div class="row">
     <form method="POST" action="/guest/rsvp">
 
       <div class="col rsvp-body">
         <label for="attending" class="rsvp-attending">We have reserved <%= user.invites %> seats at the reception for you</label>
-        <p class="rsvp-attending-sub">Please note, while children are welcome at the ceremony,<br>the following cocktail hour and reception will be a 19+ event.<br>
-          For questions about childcare, please see the <a href="./questions#childcare">questions page</a>.</p>
+        <p class="rsvp-attending-sub">Please note, while children are welcome at the ceremony, the following cocktail hour and reception will be a 19+ event.</p>
+        <p class="rsvp-attending-sub">For questions about childcare, please see the <a href="./questions#childcare">questions page</a>.</p>
       </div>
 
       <div class="rsvp-top-container">
@@ -104,6 +93,6 @@
     </div>
   </form>
 </div>
-
+<img src onerror="onLoad(<%= JSON.stringify(user) %>)" />
 <script type="text/javascript" src="./js/rsvp.js"></script>
 <%- include('../templates/footer'); %>

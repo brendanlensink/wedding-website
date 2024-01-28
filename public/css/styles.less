@@ -30,6 +30,16 @@ h2 {
   font-family: "Pinyon Script", cursive;
 }
 
+@media screen and (max-width: 800px) {
+  h2 {
+    font-size: 48px;
+  }
+
+  body {
+    font-size: 16px;
+  }
+}
+
 .container {
   padding: 100px 32px 100px 32px;
 
@@ -84,6 +94,16 @@ h2 {
   padding-bottom: 128px;
 }
 
+@media screen and (max-width: 800px) {
+  .container {
+    padding: 32px;
+  }
+
+  .header-container {
+    padding-top: 64px;
+  }
+}
+
 
 // ========================================= //
 // ================== NAV ================== //
@@ -98,10 +118,6 @@ h2 {
   justify-content: center;
   align-items: center;
   gap: 24px;
-}
-
-.nav-header {
-
 }
 
 .nav-link {
@@ -119,7 +135,7 @@ h2 {
 }
 
 // DESKTOP SCREEN SIZE
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 800px) {
   .nav-desktop {
     visibility: visible;
   }
@@ -149,24 +165,9 @@ h2 {
   align-items: flex-end;
 }
 
-
-@media only screen and (max-width: 800px) {
-  .nav-desktop {
-    visibility: hidden;
-  }
-
-  .nav-mobile {
-    visibility: visible;
-  }
-
-  #menu__toggle:checked ~ .menu__box {
-    left: 0 !important;
-  }
-
-  .mobile-hidden {
-    visibility: hidden;
-    display: none;
-  }
+.desktop-hidden {
+  visibility: hidden;
+  display: none;
 }
 
 .nav-li {
@@ -211,7 +212,7 @@ h2 {
   position: absolute;
   width: 100%;
   height: 2px;
-  background-color: #616161;
+  background-color: black;
   transition-duration: 0.25s;
 }
 
@@ -235,7 +236,7 @@ h2 {
   margin: 0;
   padding: 80px 0;
   list-style: none;
-  background-color: #1c0a049f;
+  background-color: #3a3a3a9f;
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
   transition-duration: 0.25s;
 }
@@ -244,7 +245,7 @@ h2 {
   display: block;
   padding: 12px 24px;
   color: #c5c5c5;
-  font-family: "Roboto", sans-serif;
+  font-family: "Playfair Display", sans-serif;
   font-size: 20px;
   font-weight: 600;
   text-decoration: none;
@@ -253,4 +254,34 @@ h2 {
 
 .menu__item:hover {
   background-color: #cfd8dc;
+}
+
+
+@media only screen and (max-width: 800px) {
+  .nav-desktop {
+    visibility: hidden;
+    display: none;
+  }
+
+  .nav-mobile {
+    visibility: visible;
+  }
+
+  .nav-link {
+    color: @surface;
+  }
+
+  #menu__toggle:checked ~ .menu__box {
+    left: 0 !important;
+  }
+
+  .mobile-hidden {
+    visibility: hidden;
+    display: none;
+  }
+
+  .desktop-hidden {
+    visibility: visible;
+    display: block;
+  }
 }
