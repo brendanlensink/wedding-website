@@ -78,14 +78,17 @@ const submit = () => {
       rsvp: -1,
     };
   } else {
+    console.log(attendingInput.value === "");
+    if (attendingInput.value === "") {
+      return;
+    }
+
     body = {
       rsvp: Number(attendingInput.value),
       song: songInput.value,
       dietary: dietaryInput.value,
     };
   }
-
-  console.log(body);
 
   fetch("/guest/rsvp", {
     method: "POST",
