@@ -1,5 +1,6 @@
 <%- include('../templates/header', {page: "rsvp"}); %> 
 <%- include('../templates/nav', {page: "rsvp"}); %>
+<img src class="hidden" onerror="onLoad(<%= JSON.stringify(user) %>)" />
 
 <div class="row header-container">
   <img src="/img/rsvp.jpg" class="header-img">
@@ -93,6 +94,5 @@
     </div>
   </form>
 </div>
-<img src onerror="onLoad(<%= JSON.stringify(user) %>)" />
 <script type="text/javascript" src="./js/rsvp.js"></script>
 <%- include('../templates/footer'); %>

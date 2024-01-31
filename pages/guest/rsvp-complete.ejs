@@ -1,16 +1,30 @@
 <%- include('../templates/header', {page: "rsvp-complete"}); %> <%-
 include('../templates/nav', {page: "rsvp-complete"}); %>
 
+<% if (user.rsvp == -1) { %>
+<div class="row header-container">
+    <img src="/img/rsvp-complete-no.jpg" class="header-img">
+</div>
+
+<div class="row rsvp-complete-body">
+    <h1>You'll be missed</h1>
+</div>
+<div class="row rsvp-complete-bottom">
+    <p>We're sorry to hear you can't make it, we'll miss you at the wedding but look forward to seeing you soon.</p>
+    <p>If your plans change, you will be able to return and change your RSVP any time before June 1, 2024.</p>
+</div>
+<% } else { %>
 <div class="row header-container">
     <img src="/img/rsvp-complete.jpg" class="header-img">
 </div>
 
 <div class="row rsvp-complete-body">
-    <h1>We can't wait to spend our special day with you!</h3>
+    <h1>We can't wait to spend <%= user.rsvp %> our special day with you!</h1>
 </div>
 <div class="row rsvp-complete-bottom">
-    <p>If you haven't yet, be sure to check out the <a href="./accomodations">accomodations</a> page for details on how to book acommodations, or some <a href="./details">more details</a> about the big day.</p>
+    <p>If you haven't yet, be sure to check out the <a href="./accomodations">accomodations</a> page for details on how
+        to book acommodations, or some <a href="./details">more details</a> about the big day.</p>
 </div>
-
+<% } %>
 
 <%- include('../templates/footer'); %>

@@ -21,7 +21,7 @@ function onLoad(newUser) {
   if (this.user.rsvp >= 1) {
     attendingInput.value = this.user.rsvp;
   } else {
-    attendingInput.value = ""
+    attendingInput.value = "";
   }
 
   songInput.value = this.user.song;
@@ -36,13 +36,11 @@ function onLoad(newUser) {
 
 const setAttendingFieldsHidden = (hidden) => {
   if (hidden) {
-    attendingContainer.classList.add("hidden");
     dietaryContainer.classList.add("hidden");
     songContainer.classList.add("hidden");
 
-    attendingInput.value = ""
+    attendingInput.value = "";
   } else {
-    attendingContainer.classList.remove("hidden");
     songContainer.classList.remove("hidden");
     dietaryContainer.classList.remove("hidden");
   }
@@ -54,10 +52,9 @@ const updateSubmitAttendingState = () => {
   if (declineCheckbox.checked) {
     declineCheckbox.checked = false;
     setAttendingFieldsHidden(false);
- 
   }
   updateSubmitState();
-}
+};
 
 const updateSubmitState = () => {
   if (declineCheckbox.checked) {
@@ -66,7 +63,6 @@ const updateSubmitState = () => {
     submitEnabled = attendingInput.value;
   }
 
-  // TODO: check attending number filled
   if (submitEnabled) {
     submitButton.className = "rsvp-attending-submit-enabled";
   } else {
@@ -89,7 +85,7 @@ const submit = () => {
     };
   }
 
-  console.log(body)
+  console.log(body);
 
   fetch("/guest/rsvp", {
     method: "POST",
@@ -97,6 +93,5 @@ const submit = () => {
     headers: {
       "Content-type": "application/json; charset=UTF-8",
     },
-  })
-    .then((response) => window.location = response.url);
+  }).then((response) => (window.location = response.url));
 };
