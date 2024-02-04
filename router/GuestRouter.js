@@ -9,9 +9,10 @@ const dbService = new DBService();
 guestRouter.use((req, res, next) => {
   const authToken = req.cookies.UserToken;
   const storedToken = authManager.userToken;
-
+  console.log(`2 ${JSON.stringify(authManager.user)}`);
   if (req.method === "GET") {
     if (authToken === undefined || authToken !== storedToken) {
+      console.log(authToken);
       const message = req.cookies.LoginError;
       res.render("../pages/guest/login", { message });
       return;
@@ -50,6 +51,7 @@ guestRouter.get("/rsvp", (req, res) => {
 });
 
 guestRouter.get("/rsvp-complete", (req, res) => {
+  console.log(`3 ${JSON.stringify(authManager.user)}`);
   res.render("../pages/guest/rsvp-complete", {
     user: authManager.user,
   });
@@ -70,7 +72,8 @@ guestRouter.post("/guest/rsvp", async (req, res) => {
 
   await dbService.updateUser(authManager.user);
 
-  console.log("rediect");
+  console.log(`1 ${authManager.user}`);
+
   res.redirect("/rsvp-complete");
 });
 
