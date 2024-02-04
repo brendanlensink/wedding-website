@@ -34,10 +34,10 @@ export default class DBService {
   }
 
   async updateUser(user) {
-    const { rsvp, song, email } = user;
+    const { rsvp, song, dietary, email } = user;
     await this.pool.query(
-      "UPDATE guest SET rsvp = $1, song = $2, updated = $3 WHERE email = $4",
-      [Number(rsvp), song, new Date(), email]
+      "UPDATE guest SET rsvp = $1, song = $2, dietary = $3, updated = $4 WHERE email = $5",
+      [Number(rsvp), song, dietary, new Date(), email]
     );
   }
 
