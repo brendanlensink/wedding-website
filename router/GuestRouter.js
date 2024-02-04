@@ -8,11 +8,10 @@ const dbService = new DBService();
 
 guestRouter.use((req, res, next) => {
   const authToken = req.cookies.UserToken;
-  const storedToken = authManager.userToken;
-  console.log(`2 ${JSON.stringify(authManager.user)}`);
+  const user = authManager.getUserBy(authToken);
+
   if (req.method === "GET") {
-    if (authToken === undefined || authToken !== storedToken) {
-      console.log(authToken);
+    if (user === undefined || user.token !== authToken) {
       const message = req.cookies.LoginError;
       res.render("../pages/guest/login", { message });
       return;
@@ -23,8 +22,11 @@ guestRouter.use((req, res, next) => {
 });
 
 guestRouter.get("/", (req, res) => {
+  const authToken = req.cookies.UserToken;
+  const user = authManager.getUserBy(authToken);
+
   res.render("../pages/guest/home", {
-    user: authManager.user,
+    user,
   });
 });
 
@@ -45,59 +47,72 @@ guestRouter.post("/guest/login", async (req, res) => {
 });
 
 guestRouter.get("/rsvp", (req, res) => {
+  const authToken = req.cookies.UserToken;
+  const user = authManager.getUserBy(authToken);
   res.render("../pages/guest/rsvp", {
-    user: authManager.user,
+    user,
   });
 });
 
 guestRouter.get("/rsvp-complete", (req, res) => {
-  console.log(`3 ${JSON.stringify(authManager.user)}`);
+  const authToken = req.cookies.UserToken;
+  const user = authManager.getUserBy(authToken);
+
   res.render("../pages/guest/rsvp-complete", {
-    user: authManager.user,
+    user,
   });
 });
 
 guestRouter.post("/guest/rsvp", async (req, res) => {
   const { rsvp, song, dietary } = req.body;
 
+  const authToken = req.cookies.UserToken;
+  const user = authManager.getUserBy(authToken);
+
   if (rsvp === -1) {
-    authManager.user.rsvp = -1;
-    authManager.user.song = "";
-    authManager.user.dietary = "";
+    user.rsvp = -1;
+    user.song = "";
+    user.dietary = "";
   } else {
-    authManager.user.rsvp = rsvp;
-    authManager.user.song = song;
-    authManager.user.dietary = dietary;
+    user.rsvp = rsvp;
+    user.song = song;
+    user.dietary = dietary;
   }
 
-  await dbService.updateUser(authManager.user);
-
-  console.log(`1 ${authManager.user}`);
+  await dbService.updateUser(user);
 
   res.redirect("/rsvp-complete");
 });
 
 guestRouter.get("/details", (req, res) => {
+  const authToken = req.cookies.UserToken;
+  const user = authManager.getUserBy(authToken);
   res.render("../pages/guest/details", {
-    user: authManager.user,
+    user,
   });
 });
 
 guestRouter.get("/accomodations", (req, res) => {
+  const authToken = req.cookies.UserToken;
+  const user = authManager.getUserBy(authToken);
   res.render("../pages/guest/accomodations", {
-    user: authManager.user,
+    user,
   });
 });
 
 guestRouter.get("/questions", (req, res) => {
+  const authToken = req.cookies.UserToken;
+  const user = authManager.getUserBy(authToken);
   res.render("../pages/guest/questions", {
-    user: authManager.user,
+    user,
   });
 });
 
 guestRouter.get("/wedding-party", (req, res) => {
+  const authToken = req.cookies.UserToken;
+  const user = authManager.getUserBy(authToken);
   res.render("../pages/guest/wedding-party", {
-    user: authManager.user,
+    user,
   });
 });
 export default guestRouter;

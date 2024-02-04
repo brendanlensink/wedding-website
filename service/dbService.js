@@ -25,7 +25,6 @@ export default class DBService {
   }
 
   async getUserBy(email) {
-    console.log(await this.getAllUsers());
     const response = await this.pool.query(
       "SELECT * FROM guest WHERE email = $1",
       [email]

@@ -2,19 +2,21 @@ import crypto from "crypto";
 
 export default class AuthManager {
   constructor() {
-    this.authToken = undefined;
-    this.user = undefined;
-    this.userToken = undefined;
+    this.authedUsers = [];
   }
 
-  generateAuthToken() {
-    this.authToken = crypto.randomBytes(30).toString("hex");
-    return this.authToken;
+  static generateAuthToken() {
+    return crypto.randomBytes(30).toString("hex");
   }
 
   storeUser(user) {
-    this.user = user;
-    this.userToken = this.generateAuthToken();
-    return this.userToken;
+    const newUser = user;
+    newUser.token = AuthManager.generateAuthToken();
+    this.authedUsers.push(newUser);
+    return newUser.token;
+  }
+
+  getUserBy(token) {
+    return this.authedUsers.find((user) => user.token === token);
   }
 }
