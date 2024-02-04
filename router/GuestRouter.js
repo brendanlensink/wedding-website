@@ -28,7 +28,8 @@ guestRouter.get("/", (req, res) => {
 });
 
 guestRouter.post("/guest/login", async (req, res) => {
-  const { email } = req.body;
+  let { email } = req.body;
+  email = email.toLowerCase();
 
   const user = await dbService.getUserBy(email);
   if (user) {
@@ -69,7 +70,7 @@ guestRouter.post("/guest/rsvp", async (req, res) => {
 
   await dbService.updateUser(authManager.user);
 
-  console.log("rediect")
+  console.log("rediect");
   res.redirect("/rsvp-complete");
 });
 
